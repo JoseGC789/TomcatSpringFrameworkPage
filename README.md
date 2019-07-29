@@ -20,8 +20,11 @@
     Docker
 
 <h4>
-    Commands:
+    Steps to run:
 </h4>
+    
+    # Build project
+    mvn clean install
     
     # Create Image:
     docker image build -t tomcapp -f .\docker\Dockerfile .
