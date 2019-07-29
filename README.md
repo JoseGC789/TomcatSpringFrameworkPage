@@ -24,7 +24,7 @@
 </h4>
     
     # Create Image:
-    docker image build -t tomcapp .
+    docker image build -t tomcapp -f .\docker\Dockerfile .
     
     # Run the container:
     docker run -it --rm -p 8080:8080 --name mytomcapp tomcapp
