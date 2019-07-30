@@ -1,0 +1,9 @@
+package:
+	mvn clean install
+
+build-image: package
+	docker image build -t tomcapp -f docker/Dockerfile .
+
+run: build-image
+	docker run -it --rm -p 8080:8080 --name mytomcapp tomcapp
+
