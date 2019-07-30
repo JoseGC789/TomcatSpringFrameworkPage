@@ -11,6 +11,16 @@
 <h2>
     How to run:
 </h2>
+
+<h4>
+    Quickrun:
+</h4>
+
+    For Linux:
+        make run
+    For Windows:
+        C:\scripts\run.bat
+
 <h4>
     Stack requirements:
 </h4>
@@ -18,9 +28,10 @@
     Java 8
     Maven
     Docker
+    
 
 <h4>
-    Steps to run:
+    Available commands:
 </h4>
     
     # Build project
