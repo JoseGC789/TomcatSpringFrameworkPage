@@ -7,6 +7,9 @@
     of Spring which will help me maintain the legacy code at work.
 </p>
 
+<h2>
+    Now with JMX support! At: localhost:9832
+</h2>
 
 <h2>
     How to run:
@@ -19,7 +22,7 @@
     For Linux:
         make run
     For Windows:
-        C:\scripts\run.bat
+        .\scripts\run.bat
 
 <h4>
     Stack requirements:
