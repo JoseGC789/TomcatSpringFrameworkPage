@@ -12,8 +12,8 @@
     <properties>
         <jdk.version>1.8</jdk.version>
         <spring.version>5.1.5.RELEASE</spring.version>
+        <lombok.version>1.18.8</lombok.version>
         <maven.compiler>3.8.1</maven.compiler>
-        <tomcat.plugin>2.2</tomcat.plugin>
         <war.plugin>2.6</war.plugin>
     </properties>
 
@@ -36,16 +36,6 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>${tomcat.plugin}</version>
-                <configuration>
-                    <server>mytomcat7</server>
-                    <path>/</path>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -54,6 +44,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
