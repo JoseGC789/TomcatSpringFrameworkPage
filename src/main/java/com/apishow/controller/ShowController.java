@@ -14,9 +14,15 @@ public class ShowController{
         this.contentService = contentService;
     }
 
-    @GetMapping("/service")
-    public ModelAndView show(){
+    @GetMapping("/service/read")
+    public ModelAndView showAll(){
         ModelAndView view = new ModelAndView("myView");
-        return view.addObject("message", contentService.getMessage());
+        return view.addObject("message", contentService.readAll());
+    }
+
+    @GetMapping("/service/write")
+    public ModelAndView writeEntry(){
+        ModelAndView view = new ModelAndView("myView");
+        return view.addObject("message", contentService.write().getName());
     }
 }

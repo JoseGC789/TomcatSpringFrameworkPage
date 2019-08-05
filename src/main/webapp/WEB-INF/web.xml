@@ -3,7 +3,11 @@
     <display-name>Api Show</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/context.xml</param-value>
+        <param-value>
+            classpath*:context.xml,
+            classpath*:persistence.xml,
+            classpath*:jmx.xml
+        </param-value>
     </context-param>
 
     <listener>
@@ -20,6 +24,11 @@
 
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/service</url-pattern>
+        <url-pattern>/service/write</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/service/read</url-pattern>
     </servlet-mapping>
 </web-app>
