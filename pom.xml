@@ -13,6 +13,8 @@
         <jdk.version>1.8</jdk.version>
         <spring.version>5.1.5.RELEASE</spring.version>
         <lombok.version>1.18.8</lombok.version>
+        <hibernate.version>5.4.2.Final</hibernate.version>
+        <h2.version>1.4.197</h2.version>
         <maven.compiler>3.8.1</maven.compiler>
         <war.plugin>2.6</war.plugin>
     </properties>
@@ -59,12 +61,13 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.4.2.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.197</version>
+            <version>${h2.version}</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 </project>
