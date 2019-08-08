@@ -14,9 +14,7 @@ public class HibernateH2PersonDao implements PersonDao{
     }
 
     @Override
-    public PersonEntity create(String name){
-        PersonEntity person = new PersonEntity();
-        person.setName(name);
+    public PersonEntity create(PersonEntity person){
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.save(person);
@@ -26,7 +24,7 @@ public class HibernateH2PersonDao implements PersonDao{
     }
 
     @Override
-    public List<PersonEntity> findAll(String find){
+    public List<PersonEntity> findAll(){
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("from PersonEntity order by id DESC");
         List resultList = query.getResultList();

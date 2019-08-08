@@ -1,7 +1,11 @@
 package com.apishow.controller;
 
+import com.apishow.entities.PersonEntity;
 import com.apishow.service.ContentService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,9 +24,8 @@ public class ShowController{
         return view.addObject("message", contentService.readAll());
     }
 
-    @GetMapping("/service/write")
-    public ModelAndView writeEntry(){
-        ModelAndView view = new ModelAndView("myView");
-        return view.addObject("message", contentService.write().getName());
+    @PostMapping("/service/write")
+    public ResponseEntity<PersonEntity> writeEntry(@RequestBody PersonEntity person){
+        return ResponseEntity.ok(contentService.write(person));
     }
 }
