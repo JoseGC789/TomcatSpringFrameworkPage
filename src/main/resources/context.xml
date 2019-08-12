@@ -8,8 +8,14 @@
         <constructor-arg name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="defaultUser" name="defaultUser" class="com.apishow.entities.PersonEntity">
+        <constructor-arg name="id"><null/></constructor-arg>
+        <constructor-arg name="name" value="Anonymous"/>
+        <constructor-arg name="message" value=" "/>
+    </bean>
+
     <bean id="contentService" name="contentService" class="com.apishow.service.ContentService">
-        <constructor-arg name="message" value="NO-VALUE"/>
+        <constructor-arg name="defaultPerson" ref="defaultUser"/>
         <constructor-arg name="dao" ref="hibernateH2PersonDao"/>
     </bean>
 

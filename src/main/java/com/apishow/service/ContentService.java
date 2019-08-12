@@ -3,14 +3,15 @@ package com.apishow.service;
 import com.apishow.dao.PersonDao;
 import com.apishow.entities.PersonEntity;
 import lombok.extern.apachecommons.CommonsLog;
+import org.springframework.util.StringUtils;
 
 @CommonsLog
 public class ContentService implements ManagedContent{
     private final PersonEntity defaultPerson;
     private final PersonDao dao;
 
-    public ContentService(String message, PersonDao dao){
-        this.defaultPerson = new PersonEntity(null, message);
+    public ContentService(PersonEntity defaultPerson, PersonDao dao){
+        this.defaultPerson = defaultPerson;
         this.dao = dao;
     }
 
@@ -21,7 +22,12 @@ public class ContentService implements ManagedContent{
     }
 
     public PersonEntity write(PersonEntity person){
-        return dao.create(person.getName() == null ? defaultPerson : person);
+        if(StringUtils.isEmpty(person.getName())){
+            person.setName(defaultPerson.getName());
+            return dao.create(person);
+        }else{
+            return dao.create(person);
+        }
     }
 
     @Override
